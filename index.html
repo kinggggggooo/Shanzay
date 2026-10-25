@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Shanzay ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: white;
+  background:
+    radial-gradient(circle at top, #29205b, transparent 55%),
+    linear-gradient(135deg, #090b1c, #17102c, #071b32);
+  overflow-x: hidden;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(#9baaff 1px, transparent 1px);
+  background-size: 65px 65px, 100px 100px;
+  background-position: 0 0, 30px 40px;
+  opacity: 0.45;
+  animation: sparkle 5s linear infinite alternate;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  padding: 30px 24px;
+  border: 1px solid #ffffff25;
+  border-radius: 25px;
+  background: #14172de8;
+  box-shadow: 0 0 45px #7863ff25;
+  text-align: center;
+  animation: appear 0.8s ease;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 13px;
+  margin-bottom: 25px;
+  border-radius: 30px;
+  background: #ffffff0c;
+  border: 1px solid #ffffff20;
+  color: #b9c4ff;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.emoji {
+  font-size: 65px;
+  margin-bottom: 18px;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+h1 {
+  font-size: clamp(28px, 7vw, 40px);
+  margin-bottom: 17px;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #a7baff, #ff9ecb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+p {
+  color: #d0d3e9;
+  font-size: 16px;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+.progress {
+  height: 4px;
+  background: #ffffff15;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+#bar {
+  height: 100%;
+  width: 20%;
+  background: linear-gradient(90deg, #829dff, #ff88bb);
+  transition: width 0.4s;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+button {
+  padding: 15px;
+  border: none;
+  border-radius: 13px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+.next {
+  color: #101329;
+  background: linear-gradient(100deg, #a5b9ff, #ff9bc5);
+}
+
+.later {
+  color: #dce0ff;
+  background: #ffffff0c;
+  border: 1px solid #ffffff20;
+}
+
+.footer {
+  margin-top: 25px;
+  padding-top: 17px;
+  border-top: 1px solid #ffffff15;
+  color: #9399c1;
+  font-size: 12px;
+}
+
+#step {
+  color: #aab3e8;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+#content {
+  animation: appear 0.5s ease;
+}
+
+@keyframes float {
+  50% { transform: translateY(-9px); }
+}
+
+@keyframes sparkle {
+  from { opacity: 0.2; }
+  to { opacity: 0.55; }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 400px) {
+  .card { padding: 25px 18px; }
+  p { font-size: 15px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<main class="card">
+
+  <div class="badge">✦ A LITTLE MESSAGE FOR YOU ✦</div>
+
+  <div class="progress">
+    <div id="bar"></div>
+  </div>
+
+  <div id="content">
+    <div id="step">STAGE 01 / 05</div>
+
+    <div class="emoji">🎮</div>
+
+    <h1>Hey, Shanzay! 👀</h1>
+
+    <p>
+There's something I wanted to tell you.
+It's just a little message from me.
+Will you hear me out?
+    </p>
+
+    <div class="buttons">
+      <button class="next" onclick="nextPage()">
+        Open My Message →
+      </button>
+
+      <button class="later" onclick="later()">
+        Maybe Later
+      </button>
+    </div>
+  </div>
+
+  <div class="footer">
+    Made with courage, memories & friendship ❤️
+  </div>
+
+</main>
+
+<script>
+const pages = [
+  {
+    emoji: "🎮",
+    title: "Where It All Started",
+    text: `Yaar Shanzay, remember Free Fire? 🥹
+
+Gaming was one of the things that brought us together.
+
+I still value those moments we shared in the game.`
+  },
+
+  {
+    emoji: "💭",
+    title: "Can I Say Something?",
+    text: `Yaar, I know ke hamare darmiyan narazgi hai.
+
+Main nahi chahta ke hum bas isi narazgi mein reh jaayein.
+
+Isliye aaj dil se ek baat kehni hai.`
+  },
+
+  {
+    emoji: "❤️",
+    title: "I'm Really Sorry",
+    text: `Shanzay, agar meri kisi baat se tumhein bura laga, I'm genuinely sorry.
+
+Mera maqsad tumhein hurt karna nahi tha.
+
+Main apni taraf se baat theek karna chahta hoon.
+
+I hope you can understand me. ❤️`
+  },
+
+  {
+    emoji: "🤝",
+    title: "One Small Request",
+    text: `Chalo yaar, baaki sab narazgi chhor dete hain.
+
+Hum araam se baat kar sakte hain aur cheezein theek karne ki koshish kar sakte hain.
+
+Koi pressure nahi. Bas ek chance for a fresh start?`
+  },
+
+  {
+    emoji: "🔥",
+    title: "Ek Game Ho Jaye?",
+    text: `Shanzay, jis Free Fire game se hum shuru hue thay...
+
+Kya hum dobara saath game khel sakte hain? 🎮
+
+Purani achhi vibes wapas laane ki koshish karte hain.
+
+Agar tum ready ho, let's play again! ❤️`
+  },
+
+  {
+    emoji: "🌙",
+    title: "Your Reply Matters",
+    text: `Bas itni si baat thi, Shanzay.
+
+Mujhe umeed hai ke hum dobara achhe se baat kar sakein.
+
+Jab tumhara dil kare, mujhe reply kar dena.
+
+I'll wait, yaar. ❤️
+
+— Hussnain`
+  }
+];
+
+let page = -1;
+
+function nextPage() {
+  page++;
+
+  if (page >= pages.length) {
+    page = 0;
+  }
+
+  const item = pages[page];
+  const stage = Math.min(page + 2, 5);
+
+  document.getElementById("bar").style.width =
+    Math.min(((page + 2) / 5) * 100, 100) + "%";
+
+  document.getElementById("content").innerHTML = `
+    <div id="step">STAGE ${String(stage).padStart(2, "0")} / 05</div>
+
+    <div class="emoji">${item.emoji}</div>
+
+    <h1>${item.title}</h1>
+
+    <p>${item.text}</p>
+
+    <div class="buttons">
+      <button class="next" onclick="nextPage()">
+        ${page === pages.length - 1
+          ? "Read Again ↻"
+          : "Next Page →"}
+      </button>
+
+      <button class="later" onclick="later()">
+        Take Your Time
+      </button>
+    </div>
+  `;
+}
+
+function later() {
+  alert("Koi pressure nahi, Shanzay. Jab dil kare, aage parh lena. ❤️");
+}
+</script>
+
+</body>
+</html>
