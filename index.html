@@ -3,21 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b1c">
 <title>For Shanzay ❤️</title>
 
 <style>
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
 }
 
 body {
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 24px 18px;
   font-family: Arial, sans-serif;
   color: white;
   background:
@@ -35,45 +41,93 @@ body {
     radial-gradient(#9baaff 1px, transparent 1px);
   background-size: 65px 65px, 100px 100px;
   background-position: 0 0, 30px 40px;
-  opacity: 0.45;
-  animation: sparkle 5s linear infinite alternate;
+  opacity: .35;
+  animation: sparkle 5s ease-in-out infinite alternate;
+}
+
+/* Right-side flag */
+.side-flag {
+  position: fixed;
+  z-index: 5;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  background: linear-gradient(180deg, #ff9ecb, #a7baff);
+  color: #11132a;
+  padding: 12px 7px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  box-shadow: 0 0 18px #a7baff35;
 }
 
 .card {
   position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 520px;
-  padding: 30px 24px;
+  margin: auto;
+  padding: clamp(20px, 5vw, 32px);
   border: 1px solid #ffffff25;
-  border-radius: 25px;
-  background: #14172de8;
+  border-radius: 24px;
+  background: rgba(20, 23, 45, .94);
   box-shadow: 0 0 45px #7863ff25;
   text-align: center;
-  animation: appear 0.8s ease;
 }
 
 .badge {
   display: inline-block;
-  padding: 8px 13px;
-  margin-bottom: 25px;
+  max-width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 24px;
   border-radius: 30px;
   background: #ffffff0c;
   border: 1px solid #ffffff20;
   color: #b9c4ff;
-  font-size: 11px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  overflow-wrap: anywhere;
+}
+
+.progress {
+  height: 4px;
+  background: #ffffff15;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+
+#bar {
+  height: 100%;
+  width: 16.66%;
+  background: linear-gradient(90deg, #829dff, #ff88bb);
+  transition: width .35s ease;
+}
+
+#content {
+  animation: appear .4s ease;
+}
+
+#step {
+  color: #aab3e8;
+  font-size: 10px;
   letter-spacing: 2px;
+  margin-bottom: 14px;
 }
 
 .emoji {
-  font-size: 65px;
-  margin-bottom: 18px;
+  font-size: clamp(42px, 12vw, 62px);
+  margin-bottom: 17px;
   animation: float 2.5s ease-in-out infinite;
 }
 
 h1 {
-  font-size: clamp(28px, 7vw, 40px);
-  margin-bottom: 17px;
+  font-size: clamp(26px, 7vw, 38px);
   line-height: 1.2;
+  overflow-wrap: anywhere;
+  margin-bottom: 16px;
   background: linear-gradient(90deg, #a7baff, #ff9ecb);
   -webkit-background-clip: text;
   background-clip: text;
@@ -82,45 +136,40 @@ h1 {
 
 p {
   color: #d0d3e9;
-  font-size: 16px;
-  line-height: 1.9;
+  font-size: clamp(14px, 3.8vw, 16px);
+  line-height: 1.75;
   white-space: pre-line;
-}
-
-.progress {
-  height: 4px;
-  background: #ffffff15;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  overflow: hidden;
-}
-
-#bar {
-  height: 100%;
-  width: 20%;
-  background: linear-gradient(90deg, #829dff, #ff88bb);
-  transition: width 0.4s;
+  overflow-wrap: anywhere;
 }
 
 .buttons {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 28px;
+  gap: 11px;
+  margin-top: 24px;
 }
 
 button {
-  padding: 15px;
+  width: 100%;
+  min-height: 46px;
+  padding: 13px 16px;
   border: none;
   border-radius: 13px;
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 1.4;
   font-weight: bold;
+  overflow-wrap: anywhere;
   cursor: pointer;
-  transition: 0.25s;
+  transition: transform .2s ease;
 }
 
 button:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+}
+
+button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
 }
 
 .next {
@@ -135,41 +184,70 @@ button:hover {
 }
 
 .footer {
-  margin-top: 25px;
-  padding-top: 17px;
+  margin-top: 22px;
+  padding-top: 15px;
   border-top: 1px solid #ffffff15;
   color: #9399c1;
-  font-size: 12px;
-}
-
-#step {
-  color: #aab3e8;
   font-size: 11px;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
+  line-height: 1.6;
 }
 
-#content {
-  animation: appear 0.5s ease;
+.final-note {
+  margin-top: 18px;
+  padding: 15px;
+  border: 1px solid #ff9ecb40;
+  border-radius: 14px;
+  background: #ff9ecb0b;
+  color: #ffbad4;
+  font-size: 13px;
+  line-height: 1.7;
 }
 
 @keyframes float {
-  50% { transform: translateY(-9px); }
+  50% { transform: translateY(-6px); }
 }
 
 @keyframes sparkle {
-  from { opacity: 0.2; }
-  to { opacity: 0.55; }
+  from { opacity: .2; }
+  to { opacity: .5; }
 }
 
 @keyframes appear {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 400px) {
-  .card { padding: 25px 18px; }
-  p { font-size: 15px; }
+  body {
+    padding: 18px 28px 18px 12px;
+    align-items: flex-start;
+  }
+
+  .card {
+    padding: 20px 15px;
+    border-radius: 19px;
+  }
+
+  .badge {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  .side-flag {
+    right: 3px;
+    font-size: 9px;
+    padding: 10px 5px;
+  }
+}
+
+@media (max-height: 650px) {
+  body {
+    align-items: flex-start;
+  }
 }
 </style>
 </head>
@@ -177,6 +255,10 @@ button:hover {
 <body>
 
 <div class="stars"></div>
+
+<div class="side-flag" aria-label="O-F-C Shant Hai">
+  🏳️ O-F-C SHANZAY
+</div>
 
 <main class="card">
 
@@ -186,29 +268,7 @@ button:hover {
     <div id="bar"></div>
   </div>
 
-  <div id="content">
-    <div id="step">STAGE 01 / 05</div>
-
-    <div class="emoji">🎮</div>
-
-    <h1>Hey, Shanzay! 👀</h1>
-
-    <p>
-There's something I wanted to tell you.
-It's just a little message from me.
-Will you hear me out?
-    </p>
-
-    <div class="buttons">
-      <button class="next" onclick="nextPage()">
-        Open My Message →
-      </button>
-
-      <button class="later" onclick="later()">
-        Maybe Later
-      </button>
-    </div>
-  </div>
+  <div id="content"></div>
 
   <div class="footer">
     Made with courage, memories & friendship ❤️
@@ -220,14 +280,25 @@ Will you hear me out?
 const pages = [
   {
     emoji: "🎮",
+    title: "Hey, Shanzay! 👀",
+    text: `There's something I wanted to tell you.
+
+It's just a little message from me.
+
+Will you hear me out?`,
+    button: "Open My Message →",
+    first: true
+  },
+  {
+    emoji: "🎮",
     title: "Where It All Started",
     text: `Yaar Shanzay, remember Free Fire? 🥹
 
 Gaming was one of the things that brought us together.
 
-I still value those moments we shared in the game.`
+I still value those moments we shared in the game.`,
+    button: "Next Page →"
   },
-
   {
     emoji: "💭",
     title: "Can I Say Something?",
@@ -235,9 +306,9 @@ I still value those moments we shared in the game.`
 
 Main nahi chahta ke hum bas isi narazgi mein reh jaayein.
 
-Isliye aaj dil se ek baat kehni hai.`
+Isliye aaj dil se ek baat kehni hai.`,
+    button: "Hear Me Out →"
   },
-
   {
     emoji: "❤️",
     title: "I'm Really Sorry",
@@ -247,19 +318,19 @@ Mera maqsad tumhein hurt karna nahi tha.
 
 Main apni taraf se baat theek karna chahta hoon.
 
-I hope you can understand me. ❤️`
+I hope you can understand me. ❤️`,
+    button: "One More Thing →"
   },
-
   {
     emoji: "🤝",
-    title: "One Small Request",
+    title: "Can We Start Again?",
     text: `Chalo yaar, baaki sab narazgi chhor dete hain.
 
 Hum araam se baat kar sakte hain aur cheezein theek karne ki koshish kar sakte hain.
 
-Koi pressure nahi. Bas ek chance for a fresh start?`
+Koi pressure nahi. Bas ek chance for a fresh start?`,
+    button: "Next Page →"
   },
-
   {
     emoji: "🔥",
     title: "Ek Game Ho Jaye?",
@@ -269,41 +340,38 @@ Kya hum dobara saath game khel sakte hain? 🎮
 
 Purani achhi vibes wapas laane ki koshish karte hain.
 
-Agar tum ready ho, let's play again! ❤️`
+Agar tum ready ho, let's play again! ❤️`,
+    button: "Final Message →"
   },
-
   {
     emoji: "🌙",
-    title: "Your Reply Matters",
-    text: `Bas itni si baat thi, Shanzay.
+    title: "Thank You, Shanzay!",
+    text: `Thank you for reading and giving this little message your time. ❤️
 
-Mujhe umeed hai ke hum dobara achhe se baat kar sakein.
+I hope we can leave the narazgi behind and talk again whenever you're ready.
 
-Jab tumhara dil kare, mujhe reply kar dena.
-
-I'll wait, yaar. ❤️
-
-— Hussnain`
+No pressure, yaar. Take care!`,
+    button: "Read Again ↻",
+    final: true
   }
 ];
 
-let page = -1;
+let page = 0;
 
-function nextPage() {
-  page++;
-
-  if (page >= pages.length) {
-    page = 0;
-  }
-
+function renderPage() {
   const item = pages[page];
-  const stage = Math.min(page + 2, 5);
 
   document.getElementById("bar").style.width =
-    Math.min(((page + 2) / 5) * 100, 100) + "%";
+    ((page + 1) / pages.length * 100) + "%";
 
-  document.getElementById("content").innerHTML = `
-    <div id="step">STAGE ${String(stage).padStart(2, "0")} / 05</div>
+  const content = document.getElementById("content");
+
+  content.style.animation = "none";
+  void content.offsetWidth;
+  content.style.animation = "appear .4s ease";
+
+  content.innerHTML = `
+    <div id="step">PAGE ${String(page + 1).padStart(2, "0")} / ${pages.length}</div>
 
     <div class="emoji">${item.emoji}</div>
 
@@ -311,23 +379,46 @@ function nextPage() {
 
     <p>${item.text}</p>
 
+    ${item.final ? `
+      <div class="final-note">
+        ✨ You can close this page now.<br>
+        Thank you for giving it your time.
+      </div>
+    ` : ""}
+
     <div class="buttons">
-      <button class="next" onclick="nextPage()">
-        ${page === pages.length - 1
-          ? "Read Again ↻"
-          : "Next Page →"}
+      <button class="next" id="nextButton">
+        ${item.button}
       </button>
 
-      <button class="later" onclick="later()">
-        Take Your Time
-      </button>
+      ${!item.final ? `
+        <button class="later" id="laterButton">
+          Take Your Time
+        </button>
+      ` : ""}
     </div>
   `;
+
+  document.getElementById("nextButton").addEventListener("click", () => {
+    if (item.final) {
+      page = 0;
+    } else {
+      page++;
+    }
+    renderPage();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  const laterButton = document.getElementById("laterButton");
+
+  if (laterButton) {
+    laterButton.addEventListener("click", () => {
+      alert("Koi pressure nahi, Shanzay. Jab dil kare, aage parh lena. ❤️");
+    });
+  }
 }
 
-function later() {
-  alert("Koi pressure nahi, Shanzay. Jab dil kare, aage parh lena. ❤️");
-}
+renderPage();
 </script>
 
 </body>
